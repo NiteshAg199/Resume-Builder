@@ -1,0 +1,29 @@
+import React, { useState } from "react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import './Header1.css'
+const Header1=()=>{
+    const [data,setData]=useState({
+        "name":"Your Name",
+        "email":"abc@gmail.com",
+        "phone":"+91-9052212312",
+        "linkedin":"linkedinurl",
+        "github":"https://www.linkedin.com/in/nitesh-agarwal-613a6a235/"
+    })
+    return(
+        <>
+            <div className="HeaderContainer">
+                <div className="HeaderName">{data?.name}</div>
+                <div className="ResumerInfo">
+                    <div className="infoClassContainer"><div className="email"><EmailIcon/></div><div>{data.email}</div></div>
+                    <div className="infoClassContainer"><div className="phone"><LocalPhoneIcon/>{data.phone}</div></div>
+                    <div className="infoClassContainer"><div className="linkedin"><LinkedInIcon/>{data.linkedin}</div></div>
+                    <div className="infoClassContainer"><div className="github"><GitHubIcon/><span>{data?.github || ""}</span></div></div>
+                </div>
+            </div>
+        </>
+    )
+}
+export default Header1;

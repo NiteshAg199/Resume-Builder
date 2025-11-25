@@ -1,0 +1,5 @@
+.LeftPageOuterContainer{
+    display: flexbox;
+    width: 60vw;
+    height: 100vh;
+}

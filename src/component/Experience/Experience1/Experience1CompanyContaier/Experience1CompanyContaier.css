@@ -1,0 +1,12 @@
+.experience1CompanyDesignationContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.experience1CompanyNameContainer{
+    display: flex;
+    justify-content:left
+}
+.experience1WorkPointContainer li{
+    text-align: left;
+}
