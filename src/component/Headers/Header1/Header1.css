@@ -4,12 +4,19 @@
 .HeaderName{
     text-align: center;
 }
+/* .ResumerInfo{
+} */
+.infoClassContainer{
+    width:10
+}
 .ResumerInfo{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 0.8rem;
     padding-left: 1vw;
+    width: 50;
+
     padding-right: 1vw;
 }
 .HeaderName{

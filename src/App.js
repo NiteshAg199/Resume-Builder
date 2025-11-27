@@ -12,11 +12,14 @@ import DropContainer from './DropContainer/DropContainer';
 function App() {
   const [left, setLeft] = useState([
       { id: 2, type: "header", props: { name: "Nitesh Agarwal" } },
-      { id: 1, type: "experience", props: { company: "Google", role: "Developer" } }
+      { id: 3, type: "experience", props: { company: "Google", role: "Developer" } }
     ]);
   
   const [right, setRight] = useState([
-    { id: 1, type: "header", props: { name: "Nitesh Agarwal" } }
+    { id: 1, type: "header", props: { name: "Nitesh Agarwal" } },
+          { id: 4, type: "header", props: { name: "Nitesh Agarwal" } },
+      { id: 5, type: "header", props: { name: "Nitesh Agarwal" } },
+
   ]);
   return (
     <div className="App">

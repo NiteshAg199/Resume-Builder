@@ -34,7 +34,7 @@
 import { useDrop } from "react-dnd";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
-export default function DropContainer({ items, setItems, otherItems, setOtherItems, title ,widthLen}) {
+export default function DropContainer({ items, setItems, otherItems, setOtherItems, title ,widthLen,minHeight}) {
   const [, dropRef] = useDrop({
     accept: "ITEM",
     drop: (dragged) => {
@@ -51,8 +51,8 @@ export default function DropContainer({ items, setItems, otherItems, setOtherIte
       style={{
         width: `${widthLen}vw`,
         minHeight: 300,
-        padding: 20,
-        border: "2px dashed #aaa",
+        padding: 5,
+        border: "0.5px dashed #aaa",
       }}
     >
       <h3>{title}</h3>

@@ -1,15 +1,21 @@
-.rightPageContainer{
-    display: flex;   
-
-}
 .rightPageOuterContainer{
     display: flexbox;
-    align-items: center;
-    justify-items: center;
-    width: 40vw;
+    /* align-items: center; */
+    /* justify-items: center; */
 }
 .rightPageContainer{
-    display: grid;
+    display: flex;   
+}
+.componentTypeHeading{
+    text-align: left;
+    font-weight: 800;
+    font-size: 1.2em;
+    margin-bottom: 1.2vh;
+    padding-left: 1vw;
+}
+
+.rightPageContainer{
+    display: flex;
     grid-template-columns: repeat(3, 1fr); /* 3 items per row */
     gap: 20px; /* optional spacing */
     width:35vw

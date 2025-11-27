@@ -48,9 +48,9 @@ export default function DraggableItem({ item }) {
       style={{
         opacity: isDragging ? 0.4 : 1,
         padding: 10,
-        marginBottom: 10,
-        background: "#eee",
-        border: "1px solid #ccc",
+        marginBottom: 5,
+        // background: "#eee",
+        border: "0.5px solid #ccc",
       }}
     >
       <Component {...item.props} />

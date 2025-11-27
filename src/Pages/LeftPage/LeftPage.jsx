@@ -7,12 +7,11 @@ const LeftPage=({left, right, setLeft, setRight})=>{
         <>
             <div className="LeftPageOuterContainer">
                 <DropContainer
-                title="Left Container"
                 items={left}
                 setItems={setLeft}
                 otherItems={right}
                 setOtherItems={setRight}
-                widthLen={60}
+                widthLen={59}
                 />
             </div>
         </>

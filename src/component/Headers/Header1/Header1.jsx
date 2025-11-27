@@ -20,7 +20,7 @@ const Header1=()=>{
                     <div className="infoClassContainer"><div className="email"><EmailIcon/></div><div>{data.email}</div></div>
                     <div className="infoClassContainer"><div className="phone"><LocalPhoneIcon/>{data.phone}</div></div>
                     <div className="infoClassContainer"><div className="linkedin"><LinkedInIcon/>{data.linkedin}</div></div>
-                    <div className="infoClassContainer"><div className="github"><GitHubIcon/><span>{data?.github || ""}</span></div></div>
+                    <div className="infoClassContainer"><div className="github"><GitHubIcon/><span>{data.github && <a href={data.github}>{data.github}</a>}</span></div></div>
                 </div>
             </div>
         </>
