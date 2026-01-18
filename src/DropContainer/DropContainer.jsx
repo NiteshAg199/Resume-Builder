@@ -34,7 +34,7 @@
 import { useDrop } from "react-dnd";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
-export default function DropContainer({ items, setItems, otherItems, setOtherItems, title ,widthLen,minHeight}) {
+export default function DropContainer({ items, setItems, otherItems, setOtherItems, title ,widthLen, dataModel}) {
   const [, dropRef] = useDrop({
     accept: "ITEM",
     drop: (dragged) => {
@@ -44,6 +44,7 @@ export default function DropContainer({ items, setItems, otherItems, setOtherIte
       }
     }
   });
+     console.log("Hi this is in inside renederComponent",dataModel)
 
   return (
     <div
@@ -58,7 +59,7 @@ export default function DropContainer({ items, setItems, otherItems, setOtherIte
       <h3>{title}</h3>
 
       {items.map((item) => (
-        <DraggableItem key={item.id} item={item} />
+        <DraggableItem key={item.id} item={item} dataModel={dataModel}/>
       ))}
     </div>
   );

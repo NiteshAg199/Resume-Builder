@@ -41,7 +41,7 @@ export default function DraggableItem({ item }) {
   });
 
   const Component = COMPONENT_MAP[item.type];
-
+  console.log(Component,"Hi i am a component")
   return (
     <div
       ref={dragRef}
