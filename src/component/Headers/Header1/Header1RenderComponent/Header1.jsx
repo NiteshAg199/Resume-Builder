@@ -4,7 +4,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './Header1.css'
-const Header1=({dataModel})=>{
+const Header1=({dataComponent})=>{
     const [data,setData]=useState({
         "name":"Your Name",
         "email":"abc@gmail.com",
@@ -13,11 +13,10 @@ const Header1=({dataModel})=>{
         "github":"https://www.linkedin.com/in/nitesh-agarwal-613a6a235/"
     })
 
-
+    console.log("inside header1", dataComponent)
     useEffect(()=>{
-        console.log("Hi this is in inside renederComponent",dataModel)
-        if(dataModel) setData(dataModel)
-    },[dataModel])
+        if(dataComponent) setData(dataComponent)
+    },[dataComponent])
     return(
         <>
             <div className="HeaderContainer">

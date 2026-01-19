@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import DataComponent from "../../DataComponent/DataComponent";
 import DataRenderContext from '../../utility/context/DataRenderContext'
 import Registry_Data_Model from "../../utility/RegistryDataJson";
-
+import DataComponentContext from "../../utility/context/DataComponentContext";
 const SubComponent=({componentSubComponent,componentSubTypeLength, renderComponent})=>{
     const dataContext=useContext(DataRenderContext);
     const [initSubComponentIndex,setInitSubComponentIndex]=useState(0);
@@ -54,7 +54,16 @@ const RightPage=({left, right, setLeft, setRight,upperFunction})=>{
         upperFunction(ele);
         console.log("Hi i am in component",ele)
     }
-
+     const reducerDataComponent=(state,action)=>{
+        console.log("dispatcher action",action)
+        switch(action.type){
+            case "render":
+                return action.id;
+            default:
+                return state
+        }
+    }
+     const [dataComponent,dispatchDataComponent]=useReducer(reducerDataComponent,null);
      const dataModelReducer=(state,action)=>{
         switch(action.type){
             case "ChangeValue":
@@ -62,6 +71,7 @@ const RightPage=({left, right, setLeft, setRight,upperFunction})=>{
             case "ChangeInput":
                 return {...state,[action.id.name]:action.id.value}
             case "SubmitEvent":
+                dispatchDataComponent({type:"render",id:{...state}});
                 return Registry_Data_Model[`${right[0].type}Data`]
             default:
                 return state
@@ -69,12 +79,15 @@ const RightPage=({left, right, setLeft, setRight,upperFunction})=>{
     }
     const [dataModel,dispatch] = useReducer(dataModelReducer,null);
 
+   
+
    useEffect(()=>{
         setCompData(right.map(e=>`${e.type}Data`) )
-    },[right,dataModel]);
+    },[right]);
 
     return(
         <>
+            <DataComponentContext.Provider value={dispatchDataComponent}>
             <DataRenderContext.Provider value={dispatch}>
             <div className="rightPageOuterContainer">
                 <div className="componentTypeHeading">Component Type</div>
@@ -98,10 +111,11 @@ const RightPage=({left, right, setLeft, setRight,upperFunction})=>{
                 otherItems={left}
                 setOtherItems={setLeft}
                 widthLen={40}
-                dataModel={dataModel}
+                dataComponent={dataComponent}
                 />
             </div>
             </DataRenderContext.Provider>
+            </DataComponentContext.Provider>
         </>
     );
 }

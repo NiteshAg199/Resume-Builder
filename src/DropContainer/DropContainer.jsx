@@ -31,10 +31,11 @@
 //     </div>
 //   );
 // }
+import React from "react";
 import { useDrop } from "react-dnd";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
-export default function DropContainer({ items, setItems, otherItems, setOtherItems, title ,widthLen, dataModel}) {
+const DropContainer=({ ref,items, setItems, otherItems, setOtherItems, title ,widthLen, dataComponent}) =>{
   const [, dropRef] = useDrop({
     accept: "ITEM",
     drop: (dragged) => {
@@ -44,9 +45,11 @@ export default function DropContainer({ items, setItems, otherItems, setOtherIte
       }
     }
   });
-     console.log("Hi this is in inside renederComponent",dataModel)
+     console.log("Hi this is in inside renederComponent",dataComponent)
+
 
   return (
+    <div ref={ref}>
     <div
       ref={dropRef}
       style={{
@@ -59,8 +62,11 @@ export default function DropContainer({ items, setItems, otherItems, setOtherIte
       <h3>{title}</h3>
 
       {items.map((item) => (
-        <DraggableItem key={item.id} item={item} dataModel={dataModel}/>
+        <DraggableItem widthLen={widthLen}key={item.id} item={item} dataComponent={dataComponent}/>
       ))}
+    </div>
     </div>
   );
 }
+
+export default DropContainer;
